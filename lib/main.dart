@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:premier_test/view/Accueil.dart';
+import 'package:premier_test/view/connexion.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
-      home: const Accueil(titre: 'Bienvenue'),
+      home: const Connexion(titre: 'Bienvenue'),
     );
   }
 }
