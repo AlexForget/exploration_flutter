@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../Widget/drawerApp.dart';
-
 class Page5 extends StatelessWidget {
-  const Page5({super.key});
+  const Page5({super.key, required this.payload});
+
+  final String payload;
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,12 @@ class Page5 extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Affichage notification Paylaod'),
       ),
-      drawer: const DrawerApp(),
+      body: Center(
+        child: Text(
+          payload,
+          style: const TextStyle(fontSize: 30),
+        ),
+      ),
     );
   }
 }

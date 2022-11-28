@@ -50,7 +50,7 @@ class DrawerApp extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Page 5'),
+            title: const Text('Affichage notification Payload'),
             onTap: () => {
               Navigator.of(context).pushReplacement(
                   MaterialPageRoute(builder: (context) => const Page5()))
