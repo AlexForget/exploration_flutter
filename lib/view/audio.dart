@@ -7,8 +7,11 @@ class AudioTest extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const DrawerApp(
-      titre: 'Audio',
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Audio'),
+      ),
+      drawer: const DrawerApp(),
     );
   }
 }

@@ -7,8 +7,11 @@ class Page5 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const DrawerApp(
-      titre: 'Page 5',
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Page 5'),
+      ),
+      drawer: const DrawerApp(),
     );
   }
 }

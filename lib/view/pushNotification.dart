@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:premier_test/Widget/drawerApp.dart';
 
-class Accueil extends StatelessWidget {
-  const Accueil({super.key});
+import '../Widget/drawerApp.dart';
+
+class PushNotification extends StatelessWidget {
+  const PushNotification({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Accueil'),
+        title: const Text('Push notification'),
       ),
       drawer: const DrawerApp(),
     );
