@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:premier_test/view/notifRecurrente.dart';
-import 'package:premier_test/view/pushNotification.dart';
+import 'package:premier_test/view/audio.dart';
 import 'package:premier_test/view/page5.dart';
 
 import '../view/notifChannel.dart';
@@ -43,7 +43,7 @@ class DrawerApp extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Push notification'),
+            title: const Text('Lecture fichier audio'),
             onTap: () => {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
                   builder: (context) => const PushNotification()))
