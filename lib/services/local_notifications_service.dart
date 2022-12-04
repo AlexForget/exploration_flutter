@@ -1,8 +1,10 @@
 // ignore_for_file: unused_import
 
+import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
+import 'package:premier_test/globals.dart';
 
 class LocalNotificationService {
   LocalNotificationService();
@@ -34,21 +36,22 @@ class LocalNotificationService {
     );
   }
 
-  Future<NotificationDetails> _notificationDetails() async {
-    const AndroidNotificationDetails androidNotificationDetails =
+  Future<NotificationDetails> _notificationDetails(
+      String channelId, String channelName) async {
+    AndroidNotificationDetails androidNotificationDetails =
         AndroidNotificationDetails(
-      'channel_id',
-      'channel_name',
+      channelId,
+      channelName,
       channelDescription: 'description',
       importance: Importance.max,
       priority: Priority.max,
       playSound: true,
     );
 
-    const DarwinNotificationDetails darwinNotificationDetails =
-        DarwinNotificationDetails();
+    DarwinNotificationDetails darwinNotificationDetails =
+        DarwinNotificationDetails(threadIdentifier: channelName);
 
-    return const NotificationDetails(
+    return NotificationDetails(
       android: androidNotificationDetails,
       iOS: darwinNotificationDetails,
     );
@@ -58,8 +61,10 @@ class LocalNotificationService {
     required int id,
     required String title,
     required String body,
+    required String channelId,
+    required String channelName,
   }) async {
-    final details = await _notificationDetails();
+    final details = await _notificationDetails(channelId, channelName);
     await _localNotificationService.show(id, title, body, details);
   }
 
@@ -68,20 +73,40 @@ class LocalNotificationService {
     required String title,
     required String body,
     required int seconds,
+    required String channelId,
+    required String channelName,
   }) async {
-    final details = await _notificationDetails();
-    await _localNotificationService.zonedSchedule(
-        id,
-        title,
-        body,
-        tz.TZDateTime.from(
-          DateTime.now().add(Duration(seconds: seconds)),
-          tz.local,
-        ),
-        details,
-        androidAllowWhileIdle: true,
-        uiLocalNotificationDateInterpretation:
-            UILocalNotificationDateInterpretation.absoluteTime);
+    final details = await _notificationDetails(channelId, channelName);
+    await _localNotificationService.periodicallyShow(
+        id, title, body, RepeatInterval.everyMinute, details,
+        androidAllowWhileIdle: true);
+  }
+
+  Future<void> cancelNotification({required int notifId}) async {
+    await _localNotificationService.cancel(notifId);
+  }
+
+  Future<void> showNotificationScheduled({
+    required int id,
+    required String title,
+    required String body,
+    required tz.TZDateTime scheduledDate,
+    required String channelId,
+    required String channelName,
+  }) async {
+    final details = await _notificationDetails(channelId, channelName);
+    try {
+      await _localNotificationService.zonedSchedule(
+          id, title, body, scheduledDate, details,
+          uiLocalNotificationDateInterpretation:
+              UILocalNotificationDateInterpretation.absoluteTime,
+          androidAllowWhileIdle: true);
+    } on ArgumentError {
+      const SnackBar snackBar = SnackBar(
+        content: Text('Date non valide'),
+      );
+      snackbarKey.currentState?.showSnackBar(snackBar);
+    }
   }
 
   Future<void> showNotificationWithPayload({
@@ -89,8 +114,10 @@ class LocalNotificationService {
     required String title,
     required String body,
     required String payload,
+    required String channelId,
+    required String channelName,
   }) async {
-    final details = await _notificationDetails();
+    final details = await _notificationDetails(channelId, channelName);
     await _localNotificationService.show(id, title, body, details,
         payload: payload);
   }
