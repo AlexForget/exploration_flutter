@@ -54,7 +54,7 @@ class _NotifTestState extends State<NotifTest> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Notification'),
+        title: const Text('Notification programmé'),
       ),
       drawer: const DrawerApp(),
       body: SafeArea(
@@ -70,60 +70,6 @@ class _NotifTestState extends State<NotifTest> {
                     'Demonstration comment utiliser les notifications locales',
                     style: TextStyle(fontSize: 20),
                     textAlign: TextAlign.center,
-                  ),
-                  ElevatedButton(
-                    onPressed: () async {
-                      service.showNotification(
-                          id: 0,
-                          title: 'Titre de la notification',
-                          body: 'Corp de la notification',
-                          channelId: '1',
-                          channelName: 'réflexion');
-                    },
-                    child: const Text('Channel = réflexion'),
-                  ),
-                  ElevatedButton(
-                    onPressed: () async {
-                      service.showNotification(
-                          id: 0,
-                          title: 'Titre de la notification',
-                          body: 'Corp de la notification',
-                          channelId: '2',
-                          channelName: 'objectifs');
-                    },
-                    child: const Text('Channel = objectifs'),
-                  ),
-                  ElevatedButton(
-                    onPressed: () async {
-                      service.showNotification(
-                          id: 0,
-                          title: 'Titre de la notification',
-                          body: 'Corp de la notification',
-                          channelId: '3',
-                          channelName: 'thématiques');
-                    },
-                    child: const Text('Channel = thématiques'),
-                  ),
-                  ElevatedButton(
-                    onPressed: () async {
-                      service.showScheduledNotification(
-                          id: 4,
-                          title: 'Notification mardi',
-                          body:
-                              'Notification de type quotidienne mais seulement affiché mardi',
-                          seconds: 5,
-                          channelId: '4',
-                          channelName: 'minute');
-                    },
-                    child: const Text(
-                        'Lancer une notification locale à toutes les minutes'),
-                  ),
-                  ElevatedButton(
-                    onPressed: () async {
-                      service.cancelNotification(notifId: 4);
-                    },
-                    child:
-                        const Text('Annuler notification à toutes les minutes'),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(15),
@@ -182,17 +128,7 @@ class _NotifTestState extends State<NotifTest> {
                       int.parse(hours),
                       int.parse(minutes),
                     ),
-                    child: const Text(
-                        'Lancer une notification à un moment précis'),
-                  ),
-                  ElevatedButton(
-                    onPressed: () async {},
-                    child: const Text('Notification quotidienne'),
-                  ),
-                  ElevatedButton(
-                    onPressed: () async {},
-                    child: const Text(
-                        'Notification selon journées et heures choisis'),
+                    child: const Text('Lancer la notification'),
                   ),
                 ],
               ),
