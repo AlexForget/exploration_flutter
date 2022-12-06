@@ -45,8 +45,8 @@ class DrawerApp extends StatelessWidget {
           ListTile(
             title: const Text('Lecture fichier audio'),
             onTap: () => {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) => const PushNotification()))
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => AudioTest()))
             },
           ),
           ListTile(

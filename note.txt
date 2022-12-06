@@ -1,4 +1,6 @@
 À faire :
-    X - Modifier le widget DrawerApp pour retourner seulement le Drawer et non un Scafold
-    - Implenter une notification
-    - Ajouter un choix de date et d'heure à la notification
+    - X Ajouter bouton stop au lecteur
+    - Rendre le lecteur async
+    - Gérer erreur pas d'internet
+    - X Ajouter un bouton pause
+    - Ajouter barre de progression de la lecture (temps restant)
