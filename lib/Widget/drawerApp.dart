@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:premier_test/view/notifRecurrente.dart';
 import 'package:premier_test/view/audio.dart';
-import 'package:premier_test/view/page5.dart';
+import 'package:premier_test/view/notifThematique.dart';
 
 import '../view/notifChannel.dart';
 import '../view/notifScheduled.dart';
@@ -46,14 +46,14 @@ class DrawerApp extends StatelessWidget {
             title: const Text('Lecture fichier audio'),
             onTap: () => {
               Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => AudioTest()))
+                  MaterialPageRoute(builder: (context) => const AudioTest()))
             },
           ),
           ListTile(
-            title: const Text('Affichage notification Payload'),
+            title: const Text('Notification thématique'),
             onTap: () => {
-              Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => const Page5()))
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) => const NotificationThematique()))
             },
           ),
         ],
