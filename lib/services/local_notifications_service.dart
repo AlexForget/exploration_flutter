@@ -101,6 +101,10 @@ class LocalNotificationService {
           uiLocalNotificationDateInterpretation:
               UILocalNotificationDateInterpretation.absoluteTime,
           androidAllowWhileIdle: true);
+      SnackBar snackBar = SnackBar(
+        content: Text(scheduledDate.toString()),
+      );
+      snackbarKey.currentState?.showSnackBar(snackBar);
     } on ArgumentError {
       const SnackBar snackBar = SnackBar(
         content: Text('Date non valide'),

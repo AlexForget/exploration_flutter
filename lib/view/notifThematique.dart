@@ -15,12 +15,7 @@ class NotificationThematique extends StatefulWidget {
 class _NotificationThematiqueState extends State<NotificationThematique> {
   late final LocalNotificationService notificationService;
   TimeOfDay time = const TimeOfDay(hour: 8, minute: 0);
-  bool? lundiIsCheck = false;
-  bool? mardiIsCheck = false;
-  bool? mercrediIsCheck = false;
-  bool? jeudiIsCheck = false;
-  bool? vendrediIsCheck = false;
-  bool? samediIsCheck = false;
+  List<bool> journeeIsChecked = [false, false, false, false, false, false];
 
   @override
   void initState() {
@@ -30,55 +25,41 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
     super.initState();
   }
 
-  void confirmerNotification(
-      int annee, int mois, int jour, int heure, int minute) async {
+  void journeeIsCheckedChanged(bool nouvelleValeur, int index) {
+    setState(() {
+      journeeIsChecked[index] = nouvelleValeur;
+    });
+  }
+
+  void confirmerNotification(int heure, int minute) async {
+    DateTime dernierDimanche(DateTime date) =>
+        DateTime(date.year, date.month, date.day - date.weekday % 7);
+
+    DateTime dimanche = dernierDimanche(DateTime.now());
+
     final local = tz.getLocation('America/Montreal');
-    final notificationScheduled =
-        tz.TZDateTime(local, annee, mois, jour, heure, minute);
+    int notifId = 1;
 
-    notificationService.showNotificationScheduled(
-        id: 2,
-        title: 'Thématique',
-        body: 'Notification thématique',
-        scheduledDate: notificationScheduled,
-        channelId: '3',
-        channelName: 'thématiques');
-  }
+    for (var i = 0; i < journeeIsChecked.length; i++) {
+      if (journeeIsChecked[i]) {
+        DateTime dateNotification = dimanche.add(Duration(days: i + 1));
+        final notificationScheduled = tz.TZDateTime(
+            local,
+            dateNotification.year,
+            dateNotification.month,
+            dateNotification.day,
+            heure,
+            minute);
 
-  void lundiIsCheckChanged(bool? nouvelleValeur) {
-    setState(() {
-      lundiIsCheck = nouvelleValeur;
-    });
-  }
-
-  void mardiIsCheckChanged(bool? nouvelleValeur) {
-    setState(() {
-      mardiIsCheck = nouvelleValeur;
-    });
-  }
-
-  void mercrediIsCheckChanged(bool? nouvelleValeur) {
-    setState(() {
-      mercrediIsCheck = nouvelleValeur;
-    });
-  }
-
-  void jeudiIsCheckChanged(bool? nouvelleValeur) {
-    setState(() {
-      jeudiIsCheck = nouvelleValeur;
-    });
-  }
-
-  void vendrediIsCheckChanged(bool? nouvelleValeur) {
-    setState(() {
-      vendrediIsCheck = nouvelleValeur;
-    });
-  }
-
-  void samediIsCheckChanged(bool? nouvelleValeur) {
-    setState(() {
-      samediIsCheck = nouvelleValeur;
-    });
+        notificationService.showNotificationScheduled(
+            id: notifId++,
+            title: 'Thématique',
+            body: 'Notification thématique',
+            scheduledDate: notificationScheduled,
+            channelId: '3',
+            channelName: 'thématiques');
+      }
+    }
   }
 
   @override
@@ -87,6 +68,7 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
     final minutes = time.minute.toString().padLeft(2, '0');
     const fontSizePetit = 20.0;
     const fontSizeGrand = 28.0;
+    const List<int> journeeIndex = [0, 1, 2, 3, 4, 5];
 
     return Scaffold(
       appBar: AppBar(
@@ -123,106 +105,103 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
               ),
               Column(
                 children: [
-                  Center(
-                    child: Row(
-                      children: <Widget>[
-                        const Expanded(
-                            child: Text(
+                  Row(
+                    children: <Widget>[
+                      const Expanded(
+                        child: Text(
                           'lundi',
                           style: TextStyle(fontSize: fontSizePetit),
-                        )),
-                        Checkbox(
-                          value: lundiIsCheck,
-                          onChanged: lundiIsCheckChanged,
                         ),
-                      ],
-                    ),
+                      ),
+                      Checkbox(
+                        value: journeeIsChecked[0],
+                        onChanged: (bool? nouvelleValeur) =>
+                            journeeIsCheckedChanged(
+                                nouvelleValeur!, journeeIndex[0]),
+                      ),
+                    ],
                   ),
-                  Center(
-                    child: Row(
-                      children: <Widget>[
-                        const Expanded(
-                            child: Text(
-                          'mardi',
-                          style: TextStyle(fontSize: fontSizePetit),
-                        )),
-                        Checkbox(
-                          value: mardiIsCheck,
-                          onChanged: mardiIsCheckChanged,
-                        ),
-                      ],
-                    ),
+                  Row(
+                    children: <Widget>[
+                      const Expanded(
+                          child: Text(
+                        'mardi',
+                        style: TextStyle(fontSize: fontSizePetit),
+                      )),
+                      Checkbox(
+                          value: journeeIsChecked[1],
+                          onChanged: (bool? nouvelleValeur) =>
+                              journeeIsCheckedChanged(
+                                  nouvelleValeur!, journeeIndex[1])),
+                    ],
                   ),
-                  Center(
-                    child: Row(
-                      children: <Widget>[
-                        const Expanded(
-                            child: Text(
-                          'mercredi',
-                          style: TextStyle(fontSize: fontSizePetit),
-                        )),
-                        Checkbox(
-                          value: mercrediIsCheck,
-                          onChanged: mercrediIsCheckChanged,
-                        ),
-                      ],
-                    ),
+                  Row(
+                    children: <Widget>[
+                      const Expanded(
+                          child: Text(
+                        'mercredi',
+                        style: TextStyle(fontSize: fontSizePetit),
+                      )),
+                      Checkbox(
+                          value: journeeIsChecked[2],
+                          onChanged: (bool? nouvelleValeur) =>
+                              journeeIsCheckedChanged(
+                                  nouvelleValeur!, journeeIndex[2])),
+                    ],
                   ),
-                  Center(
-                    child: Row(
-                      children: <Widget>[
-                        const Expanded(
-                            child: Text(
-                          'jeudi',
-                          style: TextStyle(fontSize: fontSizePetit),
-                        )),
-                        Checkbox(
-                          value: jeudiIsCheck,
-                          onChanged: jeudiIsCheckChanged,
-                        ),
-                      ],
-                    ),
+                  Row(
+                    children: <Widget>[
+                      const Expanded(
+                          child: Text(
+                        'jeudi',
+                        style: TextStyle(fontSize: fontSizePetit),
+                      )),
+                      Checkbox(
+                          value: journeeIsChecked[3],
+                          onChanged: (bool? nouvelleValeur) =>
+                              journeeIsCheckedChanged(
+                                  nouvelleValeur!, journeeIndex[3])),
+                    ],
                   ),
-                  Center(
-                    child: Row(
-                      children: <Widget>[
-                        const Expanded(
-                            child: Text(
-                          'vendredi',
-                          style: TextStyle(fontSize: fontSizePetit),
-                        )),
-                        Checkbox(
-                          value: vendrediIsCheck,
-                          onChanged: vendrediIsCheckChanged,
-                        ),
-                      ],
-                    ),
+                  Row(
+                    children: <Widget>[
+                      const Expanded(
+                          child: Text(
+                        'vendredi',
+                        style: TextStyle(fontSize: fontSizePetit),
+                      )),
+                      Checkbox(
+                          value: journeeIsChecked[4],
+                          onChanged: (bool? nouvelleValeur) =>
+                              journeeIsCheckedChanged(
+                                  nouvelleValeur!, journeeIndex[4])),
+                    ],
                   ),
-                  Center(
-                    child: Row(
-                      children: <Widget>[
-                        const Expanded(
-                            child: Text(
-                          'samedi',
-                          style: TextStyle(fontSize: fontSizePetit),
-                        )),
-                        Checkbox(
-                          value: samediIsCheck,
-                          onChanged: samediIsCheckChanged,
-                        ),
-                      ],
-                    ),
+                  Row(
+                    children: <Widget>[
+                      const Expanded(
+                          child: Text(
+                        'samedi',
+                        style: TextStyle(fontSize: fontSizePetit),
+                      )),
+                      Checkbox(
+                          value: journeeIsChecked[5],
+                          onChanged: (bool? nouvelleValeur) =>
+                              journeeIsCheckedChanged(
+                                  nouvelleValeur!, journeeIndex[5])),
+                    ],
                   ),
                 ],
               ),
               ElevatedButton(
                 onPressed: () => confirmerNotification(
-                    2022, 12, 07, int.parse(heures), int.parse(minutes)),
+                    int.parse(heures), int.parse(minutes)),
                 child: const Text(
                   'Confirmer la notification',
                   style: TextStyle(fontSize: fontSizePetit),
                 ),
               ),
+              Text('$journeeIsChecked'),
             ],
           ),
         ),
