@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:premier_test/view/notifObjectifs.dart';
+import 'package:premier_test/view/notifQuotidienne.dart';
 import 'package:premier_test/view/notifRecurrente.dart';
 import 'package:premier_test/view/audio.dart';
 import 'package:premier_test/view/notifThematique.dart';
@@ -54,6 +56,20 @@ class DrawerApp extends StatelessWidget {
             onTap: () => {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
                   builder: (context) => const NotificationThematique()))
+            },
+          ),
+          ListTile(
+            title: const Text('Notification objectifs'),
+            onTap: () => {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) => const NotificationObjectifs()))
+            },
+          ),
+          ListTile(
+            title: const Text('Notification quotidienne'),
+            onTap: () => {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) => const NotificationQuotidienne()))
             },
           ),
         ],

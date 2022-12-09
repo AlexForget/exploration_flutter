@@ -16,6 +16,8 @@ class NotifChannel extends StatefulWidget {
 class _NotifChannelState extends State<NotifChannel> {
   late final LocalNotificationService service;
 
+  String notifPending = '';
+
   @override
   void initState() {
     service = LocalNotificationService();
@@ -78,6 +80,15 @@ class _NotifChannelState extends State<NotifChannel> {
                     },
                     child: const Text('Channel = thématiques'),
                   ),
+                  ElevatedButton(
+                    onPressed: afficherPendingNotif,
+                    child: const Text('pending notification'),
+                  ),
+                  ElevatedButton(
+                    onPressed: () => {print(service.cancelAll())},
+                    child: const Text('Canceller toutes les notifications'),
+                  ),
+                  Text(notifPending),
                 ],
               ),
             ),
@@ -85,5 +96,19 @@ class _NotifChannelState extends State<NotifChannel> {
         ),
       ),
     );
+  }
+
+  void afficherPendingNotif() async {
+    List<PendingNotificationRequest> pending =
+        await service.pendingNotification();
+    notifPending = '';
+
+    setState(() {
+      for (var notif in pending) {
+        String? title = notif.title;
+        String? body = notif.body;
+        notifPending += '$title : $body \n\n';
+      }
+    });
   }
 }

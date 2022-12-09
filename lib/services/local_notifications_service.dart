@@ -78,8 +78,47 @@ class LocalNotificationService {
   }) async {
     final details = await _notificationDetails(channelId, channelName);
     await _localNotificationService.periodicallyShow(
-        id, title, body, RepeatInterval.everyMinute, details,
-        androidAllowWhileIdle: true);
+      id,
+      title,
+      body,
+      RepeatInterval.everyMinute,
+      details,
+      androidAllowWhileIdle: true,
+    );
+  }
+
+  Future<void> showNotificationQuotidienne({
+    required int id,
+    required String title,
+    required String body,
+    required tz.TZDateTime scheduledDate,
+    required String channelId,
+    required String channelName,
+  }) async {
+    final details = await _notificationDetails(channelId, channelName);
+
+    try {
+      await _localNotificationService.zonedSchedule(
+        id,
+        title,
+        body,
+        scheduledDate,
+        details,
+        uiLocalNotificationDateInterpretation:
+            UILocalNotificationDateInterpretation.absoluteTime,
+        androidAllowWhileIdle: true,
+        matchDateTimeComponents: DateTimeComponents.time,
+      );
+      SnackBar snackBar = SnackBar(
+        content: Text(scheduledDate.toString()),
+      );
+      snackbarKey.currentState?.showSnackBar(snackBar);
+    } on ArgumentError {
+      const SnackBar snackBar = SnackBar(
+        content: Text('Date non valide'),
+      );
+      snackbarKey.currentState?.showSnackBar(snackBar);
+    }
   }
 
   Future<void> cancelNotification({required int notifId}) async {
@@ -97,10 +136,15 @@ class LocalNotificationService {
     final details = await _notificationDetails(channelId, channelName);
     try {
       await _localNotificationService.zonedSchedule(
-          id, title, body, scheduledDate, details,
-          uiLocalNotificationDateInterpretation:
-              UILocalNotificationDateInterpretation.absoluteTime,
-          androidAllowWhileIdle: true);
+        id,
+        title,
+        body,
+        scheduledDate,
+        details,
+        uiLocalNotificationDateInterpretation:
+            UILocalNotificationDateInterpretation.absoluteTime,
+        androidAllowWhileIdle: true,
+      );
       SnackBar snackBar = SnackBar(
         content: Text(scheduledDate.toString()),
       );
@@ -124,6 +168,18 @@ class LocalNotificationService {
     final details = await _notificationDetails(channelId, channelName);
     await _localNotificationService.show(id, title, body, details,
         payload: payload);
+  }
+
+  Future<List<PendingNotificationRequest>> pendingNotification() async {
+    return await _localNotificationService.pendingNotificationRequests();
+  }
+
+  Future<List<ActiveNotification>> activeNotification() async {
+    return await _localNotificationService.getActiveNotifications();
+  }
+
+  Future<void> cancelAll() async {
+    return await _localNotificationService.cancelAll();
   }
 
   void _onDidReceiveLocalNotification(

@@ -83,7 +83,7 @@ class _ConnexionState extends State<Connexion> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 ElevatedButton(
-                  onPressed: validerConnexionUtilisateur,
+                  onPressed: ouvrirAccueil /*validerConnexionUtilisateur*/,
                   child: const Text('Connexion'),
                 ),
               ],

@@ -5,14 +5,14 @@ import 'package:timezone/timezone.dart' as tz;
 
 import '../Widget/drawerApp.dart';
 
-class NotificationThematique extends StatefulWidget {
-  const NotificationThematique({super.key});
+class NotificationObjectifs extends StatefulWidget {
+  const NotificationObjectifs({super.key});
 
   @override
-  State<NotificationThematique> createState() => _NotificationThematiqueState();
+  State<NotificationObjectifs> createState() => _NotificationObjectifsState();
 }
 
-class _NotificationThematiqueState extends State<NotificationThematique> {
+class _NotificationObjectifsState extends State<NotificationObjectifs> {
   late final LocalNotificationService notificationService;
   TimeOfDay time = const TimeOfDay(hour: 8, minute: 0);
   List<bool> journeeIsChecked = [false, false, false, false, false, false];
@@ -38,7 +38,7 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
     DateTime dimanche = dernierDimanche(DateTime.now());
 
     final local = tz.getLocation('America/Montreal');
-    int notifId = 1;
+    int notifId = 10;
 
     for (var i = 0; i < journeeIsChecked.length; i++) {
       if (journeeIsChecked[i]) {
@@ -53,11 +53,11 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
 
         notificationService.showNotificationScheduled(
             id: notifId++,
-            title: 'Thématique',
-            body: 'Notification thématique $notificationScheduled',
+            title: 'Objectifs',
+            body: 'Notification objectifs $notificationScheduled',
             scheduledDate: notificationScheduled,
-            channelId: '3',
-            channelName: 'thématiques');
+            channelId: '2',
+            channelName: 'objectifs');
       }
     }
   }
@@ -72,7 +72,7 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Notification thématique'),
+        title: const Text('Notification objectifs'),
       ),
       drawer: const DrawerApp(),
       body: Center(
