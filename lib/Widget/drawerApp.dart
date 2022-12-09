@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:premier_test/view/notifObjectifs.dart';
 import 'package:premier_test/view/notifQuotidienne.dart';
-import 'package:premier_test/view/notifRecurrente.dart';
 import 'package:premier_test/view/audio.dart';
 import 'package:premier_test/view/notifThematique.dart';
+import 'package:premier_test/view/notificationBilanHebdo.dart';
 
-import '../view/notifChannel.dart';
-import '../view/notifScheduled.dart';
+import '../view/accueil.dart';
 
 class DrawerApp extends StatelessWidget {
   const DrawerApp({super.key});
@@ -24,24 +23,10 @@ class DrawerApp extends StatelessWidget {
             child: Text('En tête menu'),
           ),
           ListTile(
-            title: const Text('Notification channel'),
+            title: const Text('Accueil'),
             onTap: () => {
               Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => const NotifChannel()))
-            },
-          ),
-          ListTile(
-            title: const Text('Notification programmé'),
-            onTap: () => {
-              Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => const NotifTest()))
-            },
-          ),
-          ListTile(
-            title: const Text('Notification récurrente'),
-            onTap: () => {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) => const NotifRecurrente()))
+                  MaterialPageRoute(builder: (context) => const Accueil()))
             },
           ),
           ListTile(
@@ -70,6 +55,20 @@ class DrawerApp extends StatelessWidget {
             onTap: () => {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
                   builder: (context) => const NotificationQuotidienne()))
+            },
+          ),
+          ListTile(
+            title: const Text('Notification bilan hebdomadaire'),
+            onTap: () => {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) => const NotificationBilanHendomadaire()))
+            },
+          ),
+          ListTile(
+            title: const Text('Speech to text'),
+            onTap: () => {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) => const NotificationBilanHendomadaire()))
             },
           ),
         ],

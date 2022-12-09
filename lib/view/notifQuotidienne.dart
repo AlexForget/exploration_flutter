@@ -55,43 +55,35 @@ class _NotificationQuotidienneState extends State<NotificationQuotidienne> {
         title: const Text('Notification quotidienne'),
       ),
       drawer: const DrawerApp(),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Center(
-            child: SizedBox(
-              height: 800,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    onTap: () async {
-                      TimeOfDay? newTime = await showTimePicker(
-                        context: context,
-                        initialTime: time,
-                      );
-                      if (newTime == null) {
-                        return;
-                      }
-                      setState(() {
-                        time = newTime;
-                      });
-                    },
-                    child: Text(
-                      '$heures:$minutes',
-                      style: const TextStyle(fontSize: fontSizePetit),
-                    ),
-                  ),
-                  ElevatedButton(
-                    onPressed: () => creerNotificationQuotidienne(
-                        int.parse(heures), int.parse(minutes)),
-                    child: const Text(
-                        'Lancer une notification locale à toutes les minutes'),
-                  ),
-                ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            GestureDetector(
+              onTap: () async {
+                TimeOfDay? newTime = await showTimePicker(
+                  context: context,
+                  initialTime: time,
+                );
+                if (newTime == null) {
+                  return;
+                }
+                setState(() {
+                  time = newTime;
+                });
+              },
+              child: Text(
+                '$heures:$minutes',
+                style: const TextStyle(fontSize: fontSizeGrand),
               ),
             ),
-          ),
+            ElevatedButton(
+              onPressed: () => creerNotificationQuotidienne(
+                  int.parse(heures), int.parse(minutes)),
+              child: const Text(
+                  'Lancer une notification locale à toutes les minutes'),
+            ),
+          ],
         ),
       ),
     );

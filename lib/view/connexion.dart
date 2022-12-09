@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:premier_test/portageApiClient.dart';
-import 'package:premier_test/view/notifChannel.dart';
+import 'package:premier_test/view/accueil.dart';
 
 class Connexion extends StatefulWidget {
   const Connexion({super.key, required this.titre});
@@ -41,7 +41,7 @@ class _ConnexionState extends State<Connexion> {
 
   void ouvrirAccueil() {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const NotifChannel()));
+        .push(MaterialPageRoute(builder: (context) => const Accueil()));
   }
 
   final _nomUtilisateurController = TextEditingController();

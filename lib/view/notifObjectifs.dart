@@ -38,7 +38,7 @@ class _NotificationObjectifsState extends State<NotificationObjectifs> {
     DateTime dimanche = dernierDimanche(DateTime.now());
 
     final local = tz.getLocation('America/Montreal');
-    int notifId = 10;
+    int notifId = 200;
 
     for (var i = 0; i < journeeIsChecked.length; i++) {
       if (journeeIsChecked[i]) {
