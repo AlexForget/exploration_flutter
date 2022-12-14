@@ -4,6 +4,7 @@ import 'package:premier_test/view/notifQuotidienne.dart';
 import 'package:premier_test/view/audio.dart';
 import 'package:premier_test/view/notifThematique.dart';
 import 'package:premier_test/view/notificationBilanHebdo.dart';
+import 'package:premier_test/view/speechToText.dart';
 
 import '../view/accueil.dart';
 
@@ -68,7 +69,7 @@ class DrawerApp extends StatelessWidget {
             title: const Text('Speech to text'),
             onTap: () => {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) => const NotificationBilanHendomadaire()))
+                  builder: (context) => const SpeechToTextPage()))
             },
           ),
         ],
