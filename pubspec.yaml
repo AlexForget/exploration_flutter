@@ -15,6 +15,9 @@ dependencies:
   http: 0.13.5
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.17.0
   cupertino_icons: ^1.0.2
   flutter_local_notifications: ^12.0.4
   timezone: ^0.9.0
@@ -28,6 +31,7 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter:
+  generate: true
   uses-material-design: true
   assets:
     - testAudio.mp3

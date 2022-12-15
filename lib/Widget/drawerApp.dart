@@ -5,6 +5,7 @@ import 'package:premier_test/view/audio.dart';
 import 'package:premier_test/view/notifThematique.dart';
 import 'package:premier_test/view/notificationBilanHebdo.dart';
 import 'package:premier_test/view/speechToText.dart';
+import 'package:premier_test/view/testLocalisation.dart';
 
 import '../view/accueil.dart';
 
@@ -70,6 +71,13 @@ class DrawerApp extends StatelessWidget {
             onTap: () => {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
                   builder: (context) => const SpeechToTextPage()))
+            },
+          ),
+          ListTile(
+            title: const Text('Localisation'),
+            onTap: () => {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) => const TestLocalisation()))
             },
           ),
         ],
