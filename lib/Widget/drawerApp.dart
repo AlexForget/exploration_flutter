@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:premier_test/view/notifObjectifs.dart';
-import 'package:premier_test/view/notifQuotidienne.dart';
-import 'package:premier_test/view/audio.dart';
-import 'package:premier_test/view/notifThematique.dart';
-import 'package:premier_test/view/notificationBilanHebdo.dart';
-import 'package:premier_test/view/speechToText.dart';
-import 'package:premier_test/view/testLocalisation.dart';
-
-import '../view/accueil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:premier_test/router/app_router.dart';
 
 class DrawerApp extends StatelessWidget {
   const DrawerApp({super.key});
@@ -25,61 +18,29 @@ class DrawerApp extends StatelessWidget {
             child: Text('En tête menu'),
           ),
           ListTile(
-            title: const Text('Accueil'),
-            onTap: () => {
-              Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => const Accueil()))
-            },
-          ),
+              title: const Text('Accueil'),
+              onTap: () => context.goNamed(AppRouter.accueil.name)),
           ListTile(
-            title: const Text('Lecture fichier audio'),
-            onTap: () => {
-              Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => const AudioTest()))
-            },
-          ),
+              title: const Text('Lecture fichier audio'),
+              onTap: () => context.goNamed(AppRouter.audio.name)),
           ListTile(
-            title: const Text('Notification thématique'),
-            onTap: () => {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) => const NotificationThematique()))
-            },
-          ),
+              title: const Text('Notification thématique'),
+              onTap: () => context.goNamed(AppRouter.notifThematique.name)),
           ListTile(
-            title: const Text('Notification objectifs'),
-            onTap: () => {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) => const NotificationObjectifs()))
-            },
-          ),
+              title: const Text('Notification objectifs'),
+              onTap: () => context.goNamed(AppRouter.notifObjectif.name)),
           ListTile(
-            title: const Text('Notification quotidienne'),
-            onTap: () => {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) => const NotificationQuotidienne()))
-            },
-          ),
+              title: const Text('Notification quotidienne'),
+              onTap: () => context.goNamed(AppRouter.notifQuotidienne.name)),
           ListTile(
-            title: const Text('Notification bilan hebdomadaire'),
-            onTap: () => {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) => const NotificationBilanHendomadaire()))
-            },
-          ),
+              title: const Text('Notification bilan hebdomadaire'),
+              onTap: () => context.goNamed(AppRouter.notifBilan.name)),
           ListTile(
-            title: const Text('Speech to text'),
-            onTap: () => {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) => const SpeechToTextPage()))
-            },
-          ),
+              title: const Text('Speech to text'),
+              onTap: () => context.goNamed(AppRouter.speechToText.name)),
           ListTile(
-            title: const Text('Localisation'),
-            onTap: () => {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) => const TestLocalisation()))
-            },
-          ),
+              title: const Text('Localisation'),
+              onTap: () => context.goNamed(AppRouter.localisation.name)),
         ],
       ),
     );

@@ -1,6 +1,20 @@
 À faire :
 
+    - Migrer de Navigator à goRouter
+		X Setup initial dans la page principal. Remplacer MaterialApp avec MaterialApp.Router
+		X Créer une sub route pour tester (page non accessible depuis le menu principal)
+		X Extension et page builder pour utiliser context.go('path')
+		X Utiliser la navigation par route context.goName('nom') (utiliser un enum dans la classe des routes)
+		- Ajouter une page nécissitent un params???
+		- Controler une erreur de route même si inutile pour application mobile
+    - Localiser l'ensemble des strings de l'application
     - Tester très sommairement l'adaptivité d'une page
         - Lire les lectures
         - Utiliser les Widget du cours d'Andrea
-    - Tester la localisation (lire les lectures)
+
+
+	- Après la section 'Architecture', commencer une première version de l'application Portage avec Flutter
+		- Planifier la navigation des pages. Faire un plan de l'ensemble des pages. Comment y naviguer et déterminer si navigation par go ou push
+		- Créer l'ensemble des pages. Pas de contenu, seulement des boutons, bar ou menu de navigation
+		- Selon l'achitecture choisi, créer tous les fichiers pour les pages. 
+		- Remplir les pages avec du data hardcodé

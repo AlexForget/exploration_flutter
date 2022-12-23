@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:premier_test/portageApiClient.dart';
-import 'package:premier_test/view/accueil.dart';
+import 'package:premier_test/router/app_router.dart';
 
 class Connexion extends StatefulWidget {
-  const Connexion({super.key, required this.titre});
-
-  final String titre;
+  const Connexion({super.key});
 
   @override
   State<Connexion> createState() => _ConnexionState();
@@ -40,8 +39,9 @@ class _ConnexionState extends State<Connexion> {
   }
 
   void ouvrirAccueil() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const Accueil()));
+    context.pushNamed(AppRouter.accueil.name);
+    // Navigator.of(context)
+    //     .push(MaterialPageRoute(builder: (context) => const Accueil()));
   }
 
   final _nomUtilisateurController = TextEditingController();
@@ -52,7 +52,7 @@ class _ConnexionState extends State<Connexion> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.titre),
+        title: const Text('Connexion'),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
