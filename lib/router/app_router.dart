@@ -9,8 +9,9 @@ import 'package:premier_test/view/notifQuotidienne.dart';
 import 'package:premier_test/view/notifThematique.dart';
 import 'package:premier_test/view/notificationBilanHebdo.dart';
 import 'package:premier_test/view/sousRoute.dart';
+import 'package:premier_test/view/sousRouteParam.dart';
 import 'package:premier_test/view/speechToText.dart';
-import 'package:premier_test/view/testLocalisation.dart';
+import 'package:premier_test/view/testNavigation.dart';
 
 enum AppRouter {
   connexion,
@@ -23,6 +24,7 @@ enum AppRouter {
   speechToText,
   localisation,
   sousRouter,
+  sousRouteParam,
 }
 
 final goRouter = GoRouter(
@@ -72,13 +74,20 @@ final goRouter = GoRouter(
         GoRoute(
           path: 'localisation',
           name: AppRouter.localisation.name,
-          builder: (context, state) => const TestLocalisation(),
+          builder: (context, state) => const TestNavigation(),
           routes: [
             GoRoute(
               path: 'sousRouter',
               name: AppRouter.sousRouter.name,
               builder: (context, state) => const SousRoute(),
             ),
+            GoRoute(
+                path: 'sousRouterParam/:paraTest',
+                name: AppRouter.sousRouteParam.name,
+                builder: (context, state) {
+                  final paramRecu = state.params['paraTest']!;
+                  return SousRouteParam(paramRecu: paramRecu);
+                }),
           ],
         ),
       ],

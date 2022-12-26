@@ -39,7 +39,7 @@ class DrawerApp extends StatelessWidget {
               title: const Text('Speech to text'),
               onTap: () => context.goNamed(AppRouter.speechToText.name)),
           ListTile(
-              title: const Text('Localisation'),
+              title: const Text('Navigation'),
               onTap: () => context.goNamed(AppRouter.localisation.name)),
         ],
       ),
