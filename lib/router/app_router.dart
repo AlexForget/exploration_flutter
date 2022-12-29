@@ -1,5 +1,6 @@
 // ignore_for_file: unused_import
 
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:premier_test/view/accueil.dart';
 import 'package:premier_test/view/audio.dart';
@@ -28,6 +29,19 @@ enum AppRouter {
   sousRouteParam,
 }
 
+CustomTransitionPage buildPageWithDefaultTransition<T>({
+  required BuildContext context,
+  required GoRouterState state,
+  required Widget child,
+}) {
+  return CustomTransitionPage<T>(
+    key: state.pageKey,
+    child: child,
+    transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+        FadeTransition(opacity: animation, child: child),
+  );
+}
+
 final goRouter = GoRouter(
   initialLocation: '/',
   debugLogDiagnostics: true,
@@ -47,6 +61,12 @@ final goRouter = GoRouter(
           path: 'audio',
           name: AppRouter.audio.name,
           builder: (context, state) => const AudioTest(),
+          /*builder: (context, state) => const AudioTest(),
+          pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+            context: context,
+            state: state,
+            child: const AudioTest(),
+          ),*/
         ),
         GoRoute(
           path: 'notifThematique',
