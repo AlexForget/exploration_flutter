@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:premier_test/l10n/string_hardcoded.dart';
 import 'package:premier_test/services/local_notifications_service.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
@@ -35,11 +36,12 @@ class _NotificationQuotidienneState extends State<NotificationQuotidienne> {
 
     service.showNotificationQuotidienne(
       id: 100,
-      title: 'Notification quotidienne',
-      body: 'Notification quotidienne à l\'heure choisi $notificationScheduled',
+      title: 'Notification quotidienne'.hardcoded,
+      body: 'Notification quotidienne à l\'heure choisi $notificationScheduled'
+          .hardcoded,
       scheduledDate: notificationScheduled,
       channelId: '6',
-      channelName: 'Quotidienne',
+      channelName: 'Quotidienne'.hardcoded,
     );
   }
 
@@ -47,12 +49,11 @@ class _NotificationQuotidienneState extends State<NotificationQuotidienne> {
   Widget build(BuildContext context) {
     final heures = time.hour.toString().padLeft(2, '0');
     final minutes = time.minute.toString().padLeft(2, '0');
-    const fontSizePetit = 20.0;
     const fontSizeGrand = 28.0;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Notification quotidienne'),
+        title: Text('Notification quotidienne'.hardcoded),
       ),
       drawer: const DrawerApp(),
       body: Center(
@@ -80,8 +81,8 @@ class _NotificationQuotidienneState extends State<NotificationQuotidienne> {
             ElevatedButton(
               onPressed: () => creerNotificationQuotidienne(
                   int.parse(heures), int.parse(minutes)),
-              child: const Text(
-                  'Lancer une notification locale à toutes les minutes'),
+              child: Text('Lancer une notification locale à toutes les minutes'
+                  .hardcoded),
             ),
           ],
         ),

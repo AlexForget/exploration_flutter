@@ -12,7 +12,7 @@ class SousRouteParam extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sous route'),
+        title: Text('Sous route'.hardcoded),
       ),
       body: Center(
         child: Column(

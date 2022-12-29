@@ -9,14 +9,15 @@ class SousRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sous route'),
+        title: Text('Sous route'.hardcoded),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'Page non accessible depuis le menu. Pour tester une sous route avec Go_Router',
+            Text(
+              'Page non accessible depuis le menu. Pour tester une sous route avec Go_Router'
+                  .hardcoded,
               textAlign: TextAlign.center,
             ),
             ElevatedButton(

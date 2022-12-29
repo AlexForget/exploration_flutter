@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:premier_test/l10n/string_hardcoded.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:premier_test/services/local_notifications_service.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
@@ -53,11 +55,11 @@ class _NotificationObjectifsState extends State<NotificationObjectifs> {
 
         notificationService.showNotificationScheduled(
             id: notifId++,
-            title: 'Objectifs',
-            body: 'Notification objectifs $notificationScheduled',
+            title: 'Objectifs'.hardcoded,
+            body: 'Notification objectifs $notificationScheduled'.hardcoded,
             scheduledDate: notificationScheduled,
             channelId: '2',
-            channelName: 'objectifs');
+            channelName: 'objectifs'.hardcoded);
       }
     }
   }
@@ -72,7 +74,7 @@ class _NotificationObjectifsState extends State<NotificationObjectifs> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Notification objectifs'),
+        title: Text('Notification objectifs'.hardcoded),
       ),
       drawer: const DrawerApp(),
       body: Center(
@@ -81,9 +83,9 @@ class _NotificationObjectifsState extends State<NotificationObjectifs> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                'Heure de la notification',
-                style: TextStyle(fontSize: fontSizeGrand),
+              Text(
+                'Heure de la notification'.hardcoded,
+                style: const TextStyle(fontSize: fontSizeGrand),
               ),
               GestureDetector(
                 onTap: () async {
@@ -107,10 +109,10 @@ class _NotificationObjectifsState extends State<NotificationObjectifs> {
                 children: [
                   Row(
                     children: <Widget>[
-                      const Expanded(
+                      Expanded(
                         child: Text(
-                          'lundi',
-                          style: TextStyle(fontSize: fontSizePetit),
+                          AppLocalizations.of(context)!.lundi,
+                          style: const TextStyle(fontSize: fontSizePetit),
                         ),
                       ),
                       Checkbox(
@@ -123,10 +125,10 @@ class _NotificationObjectifsState extends State<NotificationObjectifs> {
                   ),
                   Row(
                     children: <Widget>[
-                      const Expanded(
+                      Expanded(
                           child: Text(
-                        'mardi',
-                        style: TextStyle(fontSize: fontSizePetit),
+                        AppLocalizations.of(context)!.mardi,
+                        style: const TextStyle(fontSize: fontSizePetit),
                       )),
                       Checkbox(
                           value: journeeIsChecked[1],
@@ -137,10 +139,10 @@ class _NotificationObjectifsState extends State<NotificationObjectifs> {
                   ),
                   Row(
                     children: <Widget>[
-                      const Expanded(
+                      Expanded(
                           child: Text(
-                        'mercredi',
-                        style: TextStyle(fontSize: fontSizePetit),
+                        AppLocalizations.of(context)!.mercredi,
+                        style: const TextStyle(fontSize: fontSizePetit),
                       )),
                       Checkbox(
                           value: journeeIsChecked[2],
@@ -151,10 +153,10 @@ class _NotificationObjectifsState extends State<NotificationObjectifs> {
                   ),
                   Row(
                     children: <Widget>[
-                      const Expanded(
+                      Expanded(
                           child: Text(
-                        'jeudi',
-                        style: TextStyle(fontSize: fontSizePetit),
+                        AppLocalizations.of(context)!.jeudi,
+                        style: const TextStyle(fontSize: fontSizePetit),
                       )),
                       Checkbox(
                           value: journeeIsChecked[3],
@@ -165,10 +167,10 @@ class _NotificationObjectifsState extends State<NotificationObjectifs> {
                   ),
                   Row(
                     children: <Widget>[
-                      const Expanded(
+                      Expanded(
                           child: Text(
-                        'vendredi',
-                        style: TextStyle(fontSize: fontSizePetit),
+                        AppLocalizations.of(context)!.vendredi,
+                        style: const TextStyle(fontSize: fontSizePetit),
                       )),
                       Checkbox(
                           value: journeeIsChecked[4],
@@ -179,10 +181,10 @@ class _NotificationObjectifsState extends State<NotificationObjectifs> {
                   ),
                   Row(
                     children: <Widget>[
-                      const Expanded(
+                      Expanded(
                           child: Text(
-                        'samedi',
-                        style: TextStyle(fontSize: fontSizePetit),
+                        AppLocalizations.of(context)!.samedi,
+                        style: const TextStyle(fontSize: fontSizePetit),
                       )),
                       Checkbox(
                           value: journeeIsChecked[5],
@@ -196,9 +198,9 @@ class _NotificationObjectifsState extends State<NotificationObjectifs> {
               ElevatedButton(
                 onPressed: () => confirmerNotification(
                     int.parse(heures), int.parse(minutes)),
-                child: const Text(
-                  'Confirmer la notification',
-                  style: TextStyle(fontSize: fontSizePetit),
+                child: Text(
+                  'Confirmer la notification'.hardcoded,
+                  style: const TextStyle(fontSize: fontSizePetit),
                 ),
               ),
               Text('$journeeIsChecked'),

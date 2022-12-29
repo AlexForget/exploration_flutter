@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:premier_test/l10n/string_hardcoded.dart';
 
 import '../Widget/drawerApp.dart';
 
@@ -38,14 +39,14 @@ class _AudioTestState extends State<AudioTest> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Lecture fichier audio'),
+        title: Text('Lecture fichier audio'.hardcoded),
       ),
       drawer: const DrawerApp(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Fichier local (assets)'),
+            Text('Fichier local (assets)'.hardcoded),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -69,7 +70,7 @@ class _AudioTestState extends State<AudioTest> {
             const Padding(
               padding: EdgeInsets.all(100),
             ),
-            const Text('Fichier en ligne (url)'),
+            Text('Fichier en ligne (url)'.hardcoded),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

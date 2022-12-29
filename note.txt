@@ -7,7 +7,7 @@
 		X Utiliser la navigation par route context.goName('nom') (utiliser un enum dans la classe des routes)
 		X Ajouter une page nécissitent un params???
 		X Controler une erreur de route même si inutile pour application mobile
-		- Modifier l'animation par défaut
+		X Modifier l'animation par défaut
     - Localiser l'ensemble des strings de l'application
     - Tester très sommairement l'adaptivité d'une page
         - Lire les lectures

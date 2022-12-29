@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:premier_test/Widget/drawerApp.dart';
+import 'package:premier_test/l10n/string_hardcoded.dart';
 import 'package:premier_test/services/local_notifications_service.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
@@ -36,7 +37,7 @@ class _NotificationBilanHendomadaireState
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Notification bilan hebdomadaire'),
+        title: Text('Notification bilan hebdomadaire'.hardcoded),
       ),
       drawer: const DrawerApp(),
       body: Center(

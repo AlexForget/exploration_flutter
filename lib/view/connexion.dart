@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:premier_test/l10n/string_hardcoded.dart';
 import 'package:premier_test/portageApiClient.dart';
 import 'package:premier_test/router/app_router.dart';
 
@@ -24,10 +25,10 @@ class _ConnexionState extends State<Connexion> {
           ouvrirAccueil();
           return;
         } else {
-          affichage = 'Échec de connexion';
+          affichage = 'Échec de connexion'.hardcoded;
         }
       } else {
-        affichage = 'Échec de connexion';
+        affichage = 'Échec de connexion'.hardcoded;
       }
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(affichage)));
@@ -52,7 +53,7 @@ class _ConnexionState extends State<Connexion> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Connexion'),
+        title: Text('Connexion'.hardcoded),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -64,17 +65,17 @@ class _ConnexionState extends State<Connexion> {
             ),
             const SizedBox(height: 10.0),
             TextField(
-              decoration: const InputDecoration(
-                labelText: 'Nom d\'utilisateur',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: 'Nom d\'utilisateur'.hardcoded,
+                border: const OutlineInputBorder(),
               ),
               controller: _nomUtilisateurController,
             ),
             const SizedBox(height: 10.0),
             TextField(
-              decoration: const InputDecoration(
-                labelText: 'Mot de passe',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: 'Mot de passe'.hardcoded,
+                border: const OutlineInputBorder(),
               ),
               controller: _motDePasseController,
               obscureText: true,
@@ -84,7 +85,7 @@ class _ConnexionState extends State<Connexion> {
               children: [
                 ElevatedButton(
                   onPressed: ouvrirAccueil /*validerConnexionUtilisateur*/,
-                  child: const Text('Connexion'),
+                  child: Text('Connexion'.hardcoded),
                 ),
               ],
             ),

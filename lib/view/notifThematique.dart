@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:premier_test/l10n/string_hardcoded.dart';
 import 'package:premier_test/services/local_notifications_service.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
@@ -53,11 +54,11 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
 
         notificationService.showNotificationScheduled(
             id: notifId++,
-            title: 'Thématique',
-            body: 'Notification thématique $notificationScheduled',
+            title: 'Thématique'.hardcoded,
+            body: 'Notification thématique $notificationScheduled'.hardcoded,
             scheduledDate: notificationScheduled,
             channelId: '3',
-            channelName: 'thématiques');
+            channelName: 'thématiques'.hardcoded);
       }
     }
   }
@@ -72,7 +73,7 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Notification thématique'),
+        title: Text('Notification thématique'.hardcoded),
       ),
       drawer: const DrawerApp(),
       body: Center(
@@ -81,9 +82,9 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                'Heure de la notification',
-                style: TextStyle(fontSize: fontSizeGrand),
+              Text(
+                'Heure de la notification'.hardcoded,
+                style: const TextStyle(fontSize: fontSizeGrand),
               ),
               GestureDetector(
                 onTap: () async {
@@ -107,10 +108,10 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
                 children: [
                   Row(
                     children: <Widget>[
-                      const Expanded(
+                      Expanded(
                         child: Text(
-                          'lundi',
-                          style: TextStyle(fontSize: fontSizePetit),
+                          'lundi'.hardcoded,
+                          style: const TextStyle(fontSize: fontSizePetit),
                         ),
                       ),
                       Checkbox(
@@ -123,10 +124,10 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
                   ),
                   Row(
                     children: <Widget>[
-                      const Expanded(
+                      Expanded(
                           child: Text(
-                        'mardi',
-                        style: TextStyle(fontSize: fontSizePetit),
+                        'mardi'.hardcoded,
+                        style: const TextStyle(fontSize: fontSizePetit),
                       )),
                       Checkbox(
                           value: journeeIsChecked[1],
@@ -137,10 +138,10 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
                   ),
                   Row(
                     children: <Widget>[
-                      const Expanded(
+                      Expanded(
                           child: Text(
-                        'mercredi',
-                        style: TextStyle(fontSize: fontSizePetit),
+                        'mercredi'.hardcoded,
+                        style: const TextStyle(fontSize: fontSizePetit),
                       )),
                       Checkbox(
                           value: journeeIsChecked[2],
@@ -151,10 +152,10 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
                   ),
                   Row(
                     children: <Widget>[
-                      const Expanded(
+                      Expanded(
                           child: Text(
-                        'jeudi',
-                        style: TextStyle(fontSize: fontSizePetit),
+                        'jeudi'.hardcoded,
+                        style: const TextStyle(fontSize: fontSizePetit),
                       )),
                       Checkbox(
                           value: journeeIsChecked[3],
@@ -165,10 +166,10 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
                   ),
                   Row(
                     children: <Widget>[
-                      const Expanded(
+                      Expanded(
                           child: Text(
-                        'vendredi',
-                        style: TextStyle(fontSize: fontSizePetit),
+                        'vendredi'.hardcoded,
+                        style: const TextStyle(fontSize: fontSizePetit),
                       )),
                       Checkbox(
                           value: journeeIsChecked[4],
@@ -179,10 +180,10 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
                   ),
                   Row(
                     children: <Widget>[
-                      const Expanded(
+                      Expanded(
                           child: Text(
-                        'samedi',
-                        style: TextStyle(fontSize: fontSizePetit),
+                        'samedi'.hardcoded,
+                        style: const TextStyle(fontSize: fontSizePetit),
                       )),
                       Checkbox(
                           value: journeeIsChecked[5],
@@ -196,9 +197,9 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
               ElevatedButton(
                 onPressed: () => confirmerNotification(
                     int.parse(heures), int.parse(minutes)),
-                child: const Text(
-                  'Confirmer la notification',
-                  style: TextStyle(fontSize: fontSizePetit),
+                child: Text(
+                  'Confirmer la notification'.hardcoded,
+                  style: const TextStyle(fontSize: fontSizePetit),
                 ),
               ),
               Text('$journeeIsChecked'),

@@ -21,7 +21,7 @@ class _TestNavigationState extends State<TestNavigation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Localisation'),
+        title: Text('Localisation'.hardcoded),
       ),
       drawer: const DrawerApp(),
       body: Center(

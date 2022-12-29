@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:premier_test/l10n/string_hardcoded.dart';
 
 class Page5 extends StatelessWidget {
   const Page5({super.key, required this.payload});
@@ -9,7 +10,7 @@ class Page5 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Affichage notification Paylaod'),
+        title: Text('Affichage notification Paylaod'.hardcoded),
       ),
       body: Center(
         child: Text(

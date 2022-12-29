@@ -1,3 +1,10 @@
 {
-    "helloWorld": "Bonjour le monde!"
+    "helloWorld": "Bonjour le monde!",
+    "lundi": "Lundi",
+    "mardi": "Mardi",
+    "mercredi": "Mercredi",
+    "jeudi": "Jeudi",
+    "vendredi": "Vendredi",
+    "samedi": "Samedi"
+
 }

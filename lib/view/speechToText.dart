@@ -1,5 +1,6 @@
 // ignore_for_file: unused_import
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:premier_test/l10n/string_hardcoded.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,7 @@ class _SpeechToTextPageState extends State<SpeechToTextPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Speech to text'),
+        title: Text('Speech to text'.hardcoded),
       ),
       drawer: const DrawerApp(),
       body: Center(
