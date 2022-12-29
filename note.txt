@@ -6,7 +6,7 @@
 		X Extension et page builder pour utiliser context.go('path')
 		X Utiliser la navigation par route context.goName('nom') (utiliser un enum dans la classe des routes)
 		X Ajouter une page nécissitent un params???
-		- Controler une erreur de route même si inutile pour application mobile
+		X Controler une erreur de route même si inutile pour application mobile
 		- Modifier l'animation par défaut
     - Localiser l'ensemble des strings de l'application
     - Tester très sommairement l'adaptivité d'une page

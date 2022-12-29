@@ -8,6 +8,7 @@ import 'package:premier_test/view/notifObjectifs.dart';
 import 'package:premier_test/view/notifQuotidienne.dart';
 import 'package:premier_test/view/notifThematique.dart';
 import 'package:premier_test/view/notificationBilanHebdo.dart';
+import 'package:premier_test/view/pageNonExistente.dart';
 import 'package:premier_test/view/sousRoute.dart';
 import 'package:premier_test/view/sousRouteParam.dart';
 import 'package:premier_test/view/speechToText.dart';
@@ -30,6 +31,7 @@ enum AppRouter {
 final goRouter = GoRouter(
   initialLocation: '/',
   debugLogDiagnostics: true,
+  errorBuilder: (context, state) => const PageNonExistente(),
   routes: [
     GoRoute(
       path: '/',
