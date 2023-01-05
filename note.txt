@@ -1,6 +1,6 @@
 À faire :
 
-    - Migrer de Navigator à goRouter
+    X Migrer de Navigator à goRouter
 		X Setup initial dans la page principal. Remplacer MaterialApp avec MaterialApp.Router
 		X Créer une sub route pour tester (page non accessible depuis le menu principal)
 		X Extension et page builder pour utiliser context.go('path')
@@ -9,6 +9,8 @@
 		X Controler une erreur de route même si inutile pour application mobile
 		X Modifier l'animation par défaut
     - Localiser l'ensemble des strings de l'application
+		X Lire l'article de Andrea pour pouvoir utliser l'ajout automatique de la class et simplifier le code pour choisir un string
+	- Navigation à partir d'une notification. Comment ouvrir une page spécifique selona la notification reçu
     - Tester très sommairement l'adaptivité d'une page
         - Lire les lectures
         - Utiliser les Widget du cours d'Andrea

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:premier_test/l10n/string_hardcoded.dart';
+import 'package:premier_test/l10n/app_localisations_context.dart';
 import 'package:premier_test/portageApiClient.dart';
 import 'package:premier_test/router/app_router.dart';
 
@@ -25,10 +25,10 @@ class _ConnexionState extends State<Connexion> {
           ouvrirAccueil();
           return;
         } else {
-          affichage = 'Échec de connexion'.hardcoded;
+          affichage = context.loc.echecConnexion;
         }
       } else {
-        affichage = 'Échec de connexion'.hardcoded;
+        affichage = context.loc.echecConnexion;
       }
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(affichage)));
@@ -53,7 +53,7 @@ class _ConnexionState extends State<Connexion> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Connexion'.hardcoded),
+        title: Text(context.loc.connexion),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -66,7 +66,7 @@ class _ConnexionState extends State<Connexion> {
             const SizedBox(height: 10.0),
             TextField(
               decoration: InputDecoration(
-                labelText: 'Nom d\'utilisateur'.hardcoded,
+                labelText: context.loc.nomUtilisateur,
                 border: const OutlineInputBorder(),
               ),
               controller: _nomUtilisateurController,
@@ -74,7 +74,7 @@ class _ConnexionState extends State<Connexion> {
             const SizedBox(height: 10.0),
             TextField(
               decoration: InputDecoration(
-                labelText: 'Mot de passe'.hardcoded,
+                labelText: context.loc.motDePasse,
                 border: const OutlineInputBorder(),
               ),
               controller: _motDePasseController,
@@ -85,7 +85,7 @@ class _ConnexionState extends State<Connexion> {
               children: [
                 ElevatedButton(
                   onPressed: ouvrirAccueil /*validerConnexionUtilisateur*/,
-                  child: Text('Connexion'.hardcoded),
+                  child: Text(context.loc.connexion),
                 ),
               ],
             ),

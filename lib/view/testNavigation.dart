@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
+import 'package:premier_test/l10n/app_localisations_context.dart';
 import 'package:premier_test/l10n/string_hardcoded.dart';
 import 'package:premier_test/router/app_router.dart';
 
@@ -28,7 +28,7 @@ class _TestNavigationState extends State<TestNavigation> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(AppLocalizations.of(context)!.helloWorld),
+            Text(context.loc.helloWorld),
             ElevatedButton(
               onPressed: () => context.pushNamed(AppRouter.sousRouter.name),
               child: Text(

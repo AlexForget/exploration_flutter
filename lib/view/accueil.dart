@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:premier_test/l10n/app_localisations_context.dart';
 import 'package:premier_test/l10n/string_hardcoded.dart';
 import 'package:premier_test/services/local_notifications_service.dart';
 
@@ -31,7 +32,7 @@ class _AccueilState extends State<Accueil> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Accueil'.hardcoded),
+        title: Text(context.loc.accueil),
       ),
       drawer: const DrawerApp(),
       body: SafeArea(
@@ -45,15 +46,14 @@ class _AccueilState extends State<Accueil> {
                 children: [
                   ElevatedButton(
                     onPressed: afficherPendingNotif,
-                    child: Text(
-                        'Afficher les notifications en attentes'.hardcoded),
+                    child: Text(context.loc.notificationAttentes),
                   ),
                   ElevatedButton(
                     onPressed: () => {
                       service.cancelAll(),
                       afficherPendingNotif(),
                     },
-                    child: Text('Canceller toutes les notifications'.hardcoded),
+                    child: Text(context.loc.cancelNotification),
                   ),
                   Text(notifPending),
                 ],

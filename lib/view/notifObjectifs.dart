@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:premier_test/l10n/app_localisations_context.dart';
 import 'package:premier_test/l10n/string_hardcoded.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:premier_test/services/local_notifications_service.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
@@ -111,7 +111,7 @@ class _NotificationObjectifsState extends State<NotificationObjectifs> {
                     children: <Widget>[
                       Expanded(
                         child: Text(
-                          AppLocalizations.of(context)!.lundi,
+                          context.loc.lundi,
                           style: const TextStyle(fontSize: fontSizePetit),
                         ),
                       ),
@@ -127,7 +127,7 @@ class _NotificationObjectifsState extends State<NotificationObjectifs> {
                     children: <Widget>[
                       Expanded(
                           child: Text(
-                        AppLocalizations.of(context)!.mardi,
+                        context.loc.mardi,
                         style: const TextStyle(fontSize: fontSizePetit),
                       )),
                       Checkbox(
@@ -141,7 +141,7 @@ class _NotificationObjectifsState extends State<NotificationObjectifs> {
                     children: <Widget>[
                       Expanded(
                           child: Text(
-                        AppLocalizations.of(context)!.mercredi,
+                        context.loc.mercredi,
                         style: const TextStyle(fontSize: fontSizePetit),
                       )),
                       Checkbox(
@@ -155,7 +155,7 @@ class _NotificationObjectifsState extends State<NotificationObjectifs> {
                     children: <Widget>[
                       Expanded(
                           child: Text(
-                        AppLocalizations.of(context)!.jeudi,
+                        context.loc.jeudi,
                         style: const TextStyle(fontSize: fontSizePetit),
                       )),
                       Checkbox(
@@ -169,7 +169,7 @@ class _NotificationObjectifsState extends State<NotificationObjectifs> {
                     children: <Widget>[
                       Expanded(
                           child: Text(
-                        AppLocalizations.of(context)!.vendredi,
+                        context.loc.vendredi,
                         style: const TextStyle(fontSize: fontSizePetit),
                       )),
                       Checkbox(
@@ -183,7 +183,7 @@ class _NotificationObjectifsState extends State<NotificationObjectifs> {
                     children: <Widget>[
                       Expanded(
                           child: Text(
-                        AppLocalizations.of(context)!.samedi,
+                        context.loc.samedi,
                         style: const TextStyle(fontSize: fontSizePetit),
                       )),
                       Checkbox(

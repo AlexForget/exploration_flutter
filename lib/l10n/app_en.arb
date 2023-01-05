@@ -5,5 +5,18 @@
     "mercredi": "Wednesday",
     "jeudi": "Thursday",
     "vendredi": "Friday",
-    "samedi": "Saturday"
+    "samedi": "Saturday",
+    "notificationAttentes": "Show pending notifications",
+    "cancelNotification" : "Cancel all notifications",
+    "accueil": "Home",
+    "lectureFichierAudio": "Play audio file",
+    "fichierLocal": "Local file (assets)",
+    "fichierEnLigne": "Online fill (url)",
+    "echecConnexion": "Connection failure",
+    "connexion": "Connection",
+    "nomUtilisateur": "Username",
+    "motDePasse": "Password",
+    "notificationBilanHebdo": "Weekly review notification",
+    "preparerNotification": "Prepare the notification"
+
 }

@@ -5,6 +5,18 @@
     "mercredi": "Mercredi",
     "jeudi": "Jeudi",
     "vendredi": "Vendredi",
-    "samedi": "Samedi"
+    "samedi": "Samedi",
+    "notificationAttentes": "Afficher les notifications en attentes",
+    "cancelNotification" : "Annuler toutes les notifications",
+    "accueil": "Accueil",
+    "lectureFichierAudio": "Lecture fichier audio",
+    "fichierLocal": "Fichier local (assets)",
+    "fichierEnLigne": "Fichier en ligne (url)",
+    "echecConnexion": "Échec de la connexion",
+    "connexion": "Connexion",
+    "nomUtilisateur": "Nom d'utilisateur",
+    "motDePasse": "Mot de passe",
+    "notificationBilanHebdo": "Notification bilan hebdomadaire",
+    "preparerNotification": "Préparer la notification"
 
 }

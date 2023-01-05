@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:premier_test/Widget/drawerApp.dart';
+import 'package:premier_test/l10n/app_localisations_context.dart';
 import 'package:premier_test/l10n/string_hardcoded.dart';
 import 'package:premier_test/services/local_notifications_service.dart';
 import 'package:timezone/data/latest.dart' as tz;
@@ -37,7 +38,7 @@ class _NotificationBilanHendomadaireState
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Notification bilan hebdomadaire'.hardcoded),
+        title: Text(context.loc.notificationBilanHebdo),
       ),
       drawer: const DrawerApp(),
       body: Center(
@@ -63,9 +64,9 @@ class _NotificationBilanHendomadaireState
             ElevatedButton(
               onPressed: () =>
                   envoyerNotification(int.parse(heures), int.parse(minutes)),
-              child: const Text(
-                'test',
-                style: TextStyle(fontSize: fontSizePetit),
+              child: Text(
+                context.loc.preparerNotification,
+                style: const TextStyle(fontSize: fontSizePetit),
               ),
             ),
           ],

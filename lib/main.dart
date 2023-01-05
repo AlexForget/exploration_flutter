@@ -23,16 +23,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: true,
       routerConfig: goRouter,
       title: 'Flutter Demo',
-      localizationsDelegates: const [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: const [
-        Locale('en', ''),
-        Locale('fr', ''),
-      ],
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       scaffoldMessengerKey: snackbarKey,
       theme: ThemeData(
         primarySwatch: Colors.indigo,

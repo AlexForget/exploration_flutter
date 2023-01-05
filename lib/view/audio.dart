@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:premier_test/l10n/string_hardcoded.dart';
+import 'package:premier_test/l10n/app_localisations_context.dart';
 
 import '../Widget/drawerApp.dart';
 
@@ -39,14 +39,14 @@ class _AudioTestState extends State<AudioTest> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Lecture fichier audio'.hardcoded),
+        title: Text(context.loc.lectureFichierAudio),
       ),
       drawer: const DrawerApp(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Fichier local (assets)'.hardcoded),
+            Text(context.loc.fichierLocal),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -70,7 +70,7 @@ class _AudioTestState extends State<AudioTest> {
             const Padding(
               padding: EdgeInsets.all(100),
             ),
-            Text('Fichier en ligne (url)'.hardcoded),
+            Text(context.loc.fichierEnLigne),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
