@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:premier_test/l10n/app_localisations_context.dart';
-import 'package:premier_test/l10n/string_hardcoded.dart';
 import 'package:premier_test/services/local_notifications_service.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
@@ -55,11 +54,11 @@ class _NotificationObjectifsState extends State<NotificationObjectifs> {
 
         notificationService.showNotificationScheduled(
             id: notifId++,
-            title: 'Objectifs'.hardcoded,
-            body: 'Notification objectifs $notificationScheduled'.hardcoded,
+            title: context.loc.objectifs,
+            body: '${context.loc.notificationObjectifs} $notificationScheduled',
             scheduledDate: notificationScheduled,
             channelId: '2',
-            channelName: 'objectifs'.hardcoded);
+            channelName: context.loc.objectifs);
       }
     }
   }
@@ -74,7 +73,7 @@ class _NotificationObjectifsState extends State<NotificationObjectifs> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Notification objectifs'.hardcoded),
+        title: Text(context.loc.notificationObjectifs),
       ),
       drawer: const DrawerApp(),
       body: Center(
@@ -84,7 +83,7 @@ class _NotificationObjectifsState extends State<NotificationObjectifs> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Heure de la notification'.hardcoded,
+                context.loc.hueurNotification,
                 style: const TextStyle(fontSize: fontSizeGrand),
               ),
               GestureDetector(
@@ -199,7 +198,7 @@ class _NotificationObjectifsState extends State<NotificationObjectifs> {
                 onPressed: () => confirmerNotification(
                     int.parse(heures), int.parse(minutes)),
                 child: Text(
-                  'Confirmer la notification'.hardcoded,
+                  context.loc.preparerNotification,
                   style: const TextStyle(fontSize: fontSizePetit),
                 ),
               ),

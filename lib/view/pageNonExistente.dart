@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:premier_test/l10n/string_hardcoded.dart';
+import 'package:premier_test/l10n/app_localisations_context.dart';
 import 'package:premier_test/router/app_router.dart';
 
 class PageNonExistente extends StatelessWidget {
@@ -15,11 +15,11 @@ class PageNonExistente extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              'Page non existente, retourner à l\'accueil'.hardcoded,
+              context.loc.pageNonExistenteRetour,
             ),
             ElevatedButton(
               onPressed: () => context.goNamed(AppRouter.accueil.name),
-              child: Text('Aller à l\'accueil'.hardcoded),
+              child: Text(context.loc.retourAccueil),
             )
           ],
         ),

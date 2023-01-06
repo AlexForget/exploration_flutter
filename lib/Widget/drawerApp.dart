@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:premier_test/l10n/app_localisations_context.dart';
 import 'package:premier_test/router/app_router.dart';
 
 class DrawerApp extends StatelessWidget {
@@ -11,35 +12,35 @@ class DrawerApp extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const DrawerHeader(
-            decoration: BoxDecoration(
+          DrawerHeader(
+            decoration: const BoxDecoration(
               color: Colors.indigo,
             ),
-            child: Text('En tête menu'),
+            child: Text(context.loc.menuEnTete),
           ),
           ListTile(
-              title: const Text('Accueil'),
+              title: Text(context.loc.accueil),
               onTap: () => context.goNamed(AppRouter.accueil.name)),
           ListTile(
-              title: const Text('Lecture fichier audio'),
+              title: Text(context.loc.lectureFichierAudio),
               onTap: () => context.goNamed(AppRouter.audio.name)),
           ListTile(
-              title: const Text('Notification thématique'),
+              title: Text(context.loc.notificationThematique),
               onTap: () => context.goNamed(AppRouter.notifThematique.name)),
           ListTile(
-              title: const Text('Notification objectifs'),
+              title: Text(context.loc.notificationObjectifs),
               onTap: () => context.goNamed(AppRouter.notifObjectif.name)),
           ListTile(
-              title: const Text('Notification quotidienne'),
+              title: Text(context.loc.notificationQuotidienne),
               onTap: () => context.goNamed(AppRouter.notifQuotidienne.name)),
           ListTile(
-              title: const Text('Notification bilan hebdomadaire'),
+              title: Text(context.loc.notificationBilanHebdo),
               onTap: () => context.goNamed(AppRouter.notifBilan.name)),
           ListTile(
-              title: const Text('Speech to text'),
+              title: Text(context.loc.speechToText),
               onTap: () => context.goNamed(AppRouter.speechToText.name)),
           ListTile(
-              title: const Text('Navigation'),
+              title: Text(context.loc.navigation),
               onTap: () => context.goNamed(AppRouter.localisation.name)),
         ],
       ),

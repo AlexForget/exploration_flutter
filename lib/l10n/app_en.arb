@@ -17,6 +17,26 @@
     "nomUtilisateur": "Username",
     "motDePasse": "Password",
     "notificationBilanHebdo": "Weekly review notification",
-    "preparerNotification": "Prepare the notification"
+    "preparerNotification": "Prepare the notification",
+    "objectifs": "Goals",
+    "notificationObjectifs": "Goals's notification",
+    "hueurNotification": "Time of notification",
+    "notificationQuotidienne": "Daily notification",
+    "quotidienne": "Daily",
+    "thematique": "theme",
+    "notificationThematique": "Theme notification",
+    "pageNonExistenteRetour": "Page does not exist, return to home page",
+    "retourAccueil": "Return to home page",
+    "sousRoute": "Sub route",
+    "pageNonAccessibleDepuisMenu": "Page not accessible from the menu. To test a sub route with Go_Router",
+    "retournerPagePrecedente": "Return to the previous page",
+    "speechToText": "Speech to text",
+    "motsReconnus": "Recognized words",
+    "test": "Test",
+    "navigation": "Navigation",
+    "allerSousRoute": "Go to the sub-route",
+    "entrerText": "Enter text",
+    "allerSousRouteParametre": "Go to the sub-route with a parameter",
+    "menuEnTete": "Top menu"
 
 }

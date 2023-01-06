@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:premier_test/l10n/string_hardcoded.dart';
+import 'package:premier_test/l10n/app_localisations_context.dart';
 import 'package:premier_test/services/local_notifications_service.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
@@ -54,11 +54,12 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
 
         notificationService.showNotificationScheduled(
             id: notifId++,
-            title: 'Thématique'.hardcoded,
-            body: 'Notification thématique $notificationScheduled'.hardcoded,
+            title: context.loc.thematique,
+            body:
+                '${context.loc.notificationThematique} $notificationScheduled',
             scheduledDate: notificationScheduled,
             channelId: '3',
-            channelName: 'thématiques'.hardcoded);
+            channelName: context.loc.thematique);
       }
     }
   }
@@ -73,7 +74,7 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Notification thématique'.hardcoded),
+        title: Text(context.loc.notificationThematique),
       ),
       drawer: const DrawerApp(),
       body: Center(
@@ -83,7 +84,7 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Heure de la notification'.hardcoded,
+                context.loc.hueurNotification,
                 style: const TextStyle(fontSize: fontSizeGrand),
               ),
               GestureDetector(
@@ -110,7 +111,7 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
                     children: <Widget>[
                       Expanded(
                         child: Text(
-                          'lundi'.hardcoded,
+                          context.loc.lundi,
                           style: const TextStyle(fontSize: fontSizePetit),
                         ),
                       ),
@@ -126,7 +127,7 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
                     children: <Widget>[
                       Expanded(
                           child: Text(
-                        'mardi'.hardcoded,
+                        context.loc.mardi,
                         style: const TextStyle(fontSize: fontSizePetit),
                       )),
                       Checkbox(
@@ -140,7 +141,7 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
                     children: <Widget>[
                       Expanded(
                           child: Text(
-                        'mercredi'.hardcoded,
+                        context.loc.mercredi,
                         style: const TextStyle(fontSize: fontSizePetit),
                       )),
                       Checkbox(
@@ -154,7 +155,7 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
                     children: <Widget>[
                       Expanded(
                           child: Text(
-                        'jeudi'.hardcoded,
+                        context.loc.jeudi,
                         style: const TextStyle(fontSize: fontSizePetit),
                       )),
                       Checkbox(
@@ -168,7 +169,7 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
                     children: <Widget>[
                       Expanded(
                           child: Text(
-                        'vendredi'.hardcoded,
+                        context.loc.vendredi,
                         style: const TextStyle(fontSize: fontSizePetit),
                       )),
                       Checkbox(
@@ -182,7 +183,7 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
                     children: <Widget>[
                       Expanded(
                           child: Text(
-                        'samedi'.hardcoded,
+                        context.loc.samedi,
                         style: const TextStyle(fontSize: fontSizePetit),
                       )),
                       Checkbox(
@@ -198,7 +199,7 @@ class _NotificationThematiqueState extends State<NotificationThematique> {
                 onPressed: () => confirmerNotification(
                     int.parse(heures), int.parse(minutes)),
                 child: Text(
-                  'Confirmer la notification'.hardcoded,
+                  context.loc.preparerNotification,
                   style: const TextStyle(fontSize: fontSizePetit),
                 ),
               ),

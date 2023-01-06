@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:premier_test/l10n/app_localisations_context.dart';
-import 'package:premier_test/l10n/string_hardcoded.dart';
 import 'package:premier_test/router/app_router.dart';
 
 import '../Widget/drawerApp.dart';
@@ -21,7 +20,7 @@ class _TestNavigationState extends State<TestNavigation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Localisation'.hardcoded),
+        title: Text(context.loc.navigation),
       ),
       drawer: const DrawerApp(),
       body: Center(
@@ -32,7 +31,7 @@ class _TestNavigationState extends State<TestNavigation> {
             ElevatedButton(
               onPressed: () => context.pushNamed(AppRouter.sousRouter.name),
               child: Text(
-                'Aller à la sous route'.hardcoded,
+                context.loc.allerSousRoute,
                 textAlign: TextAlign.center,
               ),
             ),
@@ -42,7 +41,7 @@ class _TestNavigationState extends State<TestNavigation> {
                 controller: entreUrilisateurController,
                 decoration: InputDecoration(
                     border: const OutlineInputBorder(),
-                    labelText: 'Entrer du text'.hardcoded),
+                    labelText: context.loc.entrerText),
                 onChanged: (text) =>
                     entreUtilisateur = entreUrilisateurController.text,
               ),
@@ -51,7 +50,7 @@ class _TestNavigationState extends State<TestNavigation> {
               onPressed: () => context.pushNamed(AppRouter.sousRouteParam.name,
                   params: {'paraTest': entreUtilisateur}),
               child: Text(
-                'Aller à la sous route avec un paramètre'.hardcoded,
+                context.loc.allerSousRouteParametre,
                 textAlign: TextAlign.center,
               ),
             ),

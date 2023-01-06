@@ -17,6 +17,26 @@
     "nomUtilisateur": "Nom d'utilisateur",
     "motDePasse": "Mot de passe",
     "notificationBilanHebdo": "Notification bilan hebdomadaire",
-    "preparerNotification": "Préparer la notification"
+    "preparerNotification": "Préparer la notification",
+    "objectifs": "Objectifs",
+    "notificationObjectifs": "Notifications des objectifs",
+    "hueurNotification": "Heure de la notification",
+    "notificationQuotidienne": "Notification quotidienne",
+    "quotidienne": "Quotidienne",
+    "thematique": "Thématique",
+    "notificationThematique": "Notification thématique",
+    "pageNonExistenteRetour": "Page non existente, retour à l'accueil",
+    "retourAccueil": "Retourner à l'accueil",
+    "sousRoute": "Sous route",
+    "pageNonAccessibleDepuisMenu": "Page non accessible depuis le menu. Pour tester une sous route avec Go_Router",
+    "retournerPagePrecedente": "Retourner à la page précédente",
+    "speechToText": "conversion de la parole en texte",
+    "motsReconnus": "Mots reconnus : ",
+    "test": "Test",
+    "navigation": "Navigation",
+    "allerSousRoute": "Aller à la sous route",
+    "entrerText": "Entrer du texte",
+    "allerSousRouteParametre": "Aller à la sous route avec un paramètre",
+    "menuEnTete": "Menu en tête"
 
 }

@@ -1,5 +1,6 @@
 // ignore_for_file: unused_import
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:premier_test/l10n/app_localisations_context.dart';
 import 'package:premier_test/l10n/string_hardcoded.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart';
@@ -30,7 +31,7 @@ class _SpeechToTextPageState extends State<SpeechToTextPage> {
   }
 
   void _startListening() async {
-    _text = 'stop';
+    _text = context.loc.test;
     await _stt.listen(onResult: _onSpeechResult);
     setState(() {});
   }
@@ -50,7 +51,7 @@ class _SpeechToTextPageState extends State<SpeechToTextPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Speech to text'.hardcoded),
+        title: Text(context.loc.speechToText),
       ),
       drawer: const DrawerApp(),
       body: Center(
@@ -60,9 +61,9 @@ class _SpeechToTextPageState extends State<SpeechToTextPage> {
             Text(_stt.isListening.toString()),
             Container(
               padding: const EdgeInsets.all(16),
-              child: const Text(
-                'Mots reconnus:',
-                style: TextStyle(fontSize: 20.0),
+              child: Text(
+                context.loc.motsReconnus,
+                style: const TextStyle(fontSize: 20.0),
               ),
             ),
             Expanded(
